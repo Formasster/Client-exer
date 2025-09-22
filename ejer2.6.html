@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a,b;
+        a=prompt("Escribe la base:");
+        do{
+            alert("Introduce un número");
+            a=prompt("Escribe la base:");
+            if(!isNaN(a)){
+            do{
+                b=prompt("Escribe la altura:");
+                if(isNaN(b)){
+                    alert("Introduce un número");
+                }
+                alert("El área del rectángulo es: " + a*b/2);
+            }while(isNaN(b))
+        }
+        }while(isNaN(a))
+    </script>
+</body>
+</html>

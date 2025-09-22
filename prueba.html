@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(true){
+             let year = prompt("Escribe un año y probamos si es bisiesto o no");
+        if(year % 4 === 0){
+            alert("El año " + year + " es bisiesto");
+        }else if (typeof year === 'string'){
+            alert("Debes escribir un número");
+        }
+        else {
+            alert("El año " + year + " no es bisiesto");
+        }
+        }
+    </script>
+</body>
+</html>
