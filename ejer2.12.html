@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cuadrado</title>
 </head>
 <body>
     <script>
+        let numero;
+        let fila = "";
     do{
-        let numero = prompt("Dame un número que será un lado de un cuadrado");
+            numero = prompt("Dame un número que será un lado de un cuadrado");
             numero = parseInt(numero);
     }while(isNaN(numero) || numero<=0 );
         document.write("<h1>Cuadrado de lado " + numero + "</h1>");  
-        for(let i=0; i<numero; i++){
-            let fila="";
+        let blancos = numero - 2;
+        for(let i=1; i<=numero; i++){
             for(let j=0; j<numero; j++){
-                fila += "* ";
+                fila += "* &nbsp &nbsp &nbsp";
             }
             document.write("<h3>" + fila + "</h3>");
+            fila = "";
         }
+    
     </script>
 </body>
 </html>

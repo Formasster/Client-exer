@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
+    <script>
+        while(true){
+        alert("Menú de opciones:\n1. Salir\n2. Sumatorio\n3. Factorial");
+        let opcion = parseInt(prompt("Dime una opción"));
+        switch(opcion){
+            case 1:
+                document.write("<h1>Adiós</h1>");
+                break;
+            case 2:
+                let numero = parseInt(prompt("Dime un número"));
+                let suma = 0;
+                for(let i=1; i<=numero; i++){
+                    suma += i;
+                }
+                document.write("<h1>El sumatorio de " + numero + " es " + suma + "</h1>");
+                break;
+            case 3:
+                let num = parseInt(prompt("Dime un número"));
+                let fact = 1;
+                for(let i=1; i<=num; i++){
+                    fact *= i;
+                }
+                document.write("<h1>El factorial de " + num + " es " + fact + "</h1>");
+                break;
+            default:
+                document.write("<h1>Opción incorrecta</h1>");
+        }    
+        }    
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&M</title>
+</head>
+<body>
+    <script>
+        let total = parseInt(prompt("Dime cuántas personas hay en clase:"));
+        let hombres = 0;
+        let mujeres = 0;
+        let noSabe = 0;
+        for(let i=1; i<=total; i++){
+            let sexo = parseInt(prompt("Dime el sexo de la persona: \n1. Hombre \n2. Mujer \n3. No quiero decir "));
+            if(sexo === 1){
+                mujeres++;
+            }else if(sexo === 2){
+                hombres++;      
+            }else{
+                noSabe++;
+            }
+        }
+            let phombres = (hombres*100/total).toFixed(2);
+            let pmujeres = (mujeres*100/total).toFixed(2);
+            let pnoSabe = (noSabe*100/total).toFixed(2);
+            document.write("<h1>El total de la clase</h1>");
+            document.write("<h1>======================</h1>");
+            document.write("<h1>Hay " + hombres + " hombres que es el " + phombres + "%</h1>");
+            document.write("<h1>Hay " + mujeres + " mujeres que es el " + pmujeres + "%</h1>");     
+            document.write("<h1>Hay " + noSabe + " que no quieren decir su sexo que es el " + pnoSabe + "% </h1>");     
+    </script>
+</body>
+</html>

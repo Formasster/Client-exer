@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero =Math.floor(Math.random() * 11);
+        for(let i=1; i<=5; i++){
+            let numero1 = parseInt(prompt("Adivina qué número ha pasado tu compañero"));
+            if(numero1===numero){
+                document.write("<h1>Has acertado el número</h1>");
+                break;
+            }else if(numero1<numero){
+               alert("Te quedaste corto");
+            }else if (numero1>numero){
+                alert("Te pasaste");
+            }else{
+                if(i===5){
+                    document.write("<h1>Has agotado tus intentos. El número era " + numero + "</h1>");
+                }
+            }    
+        }
+    </script>
+</body>
+</html>

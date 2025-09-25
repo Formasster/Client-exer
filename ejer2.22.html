@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media</title>
+</head>
+<body>
+    <script>
+        alert("Vamos a calcular la media de dos números. Vete metiendo números. Si quieres salir mete un 0");
+        let contador = 0;
+        let num;
+        let suma=0;
+        do{
+            num = parseInt(prompt("Dame un número"));
+            if(isNaN(num)){
+                alert("Eso no es un número");
+            }else{
+                contador++;
+                suma += num;
+            }
+        }while(isNaN(num) || num !== 0);
+        contador--; //Restamos 1 porque el 0 no cuenta
+        let media = (suma/ contador).toFixed(2);
+        document.write("<h1>La media es " + media + "</h1>");
+    </script>
+
+</body>
+</html>
