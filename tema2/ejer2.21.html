@@ -7,6 +7,41 @@
 </head>
 <body>
     <script>
+        alert("¿Qué quieres hacer? \n1. Contar hombres y mujeres \n2. Calcular media de números \n3. Salir");
+        switch(parseInt(prompt("Dime una opción"))){
+            case 1:
+                contar();
+                break;
+            case 2:
+                calcularMedia();
+                break;
+            case 3:
+                document.write("<h1>Adiós</h1>");
+                break;
+            default:
+                document.write("<h1>Opción incorrecta</h1>");
+        }
+
+        function calcularMedia(){
+             alert("Vamos a calcular la media de dos números. Vete metiendo números. Si quieres salir mete un 0");
+        let contador = 0;
+        let num;
+        let suma=0;
+        do{
+            num = parseInt(prompt("Dame un número"));
+            if(isNaN(num)){
+                alert("Eso no es un número");
+            }else{
+                contador++;
+                suma += num;
+            }
+        }while(isNaN(num) || num !== 0);
+        contador--; //Restamos 1 porque el 0 no cuenta
+        let media = (suma/ contador).toFixed(2);
+        document.write("<h1>La media es " + media + "</h1>");
+        }
+
+        function hm(){
         let total = parseInt(prompt("Dime cuántas personas hay en clase:"));
         let hombres = 0;
         let mujeres = 0;
@@ -27,8 +62,11 @@
             document.write("<h1>El total de la clase</h1>");
             document.write("<h1>======================</h1>");
             document.write("<h1>Hay " + hombres + " hombres que es el " + phombres + "%</h1>");
+            document.write()
             document.write("<h1>Hay " + mujeres + " mujeres que es el " + pmujeres + "%</h1>");     
             document.write("<h1>Hay " + noSabe + " que no quieren decir su sexo que es el " + pnoSabe + "% </h1>");     
+        }
+        
     </script>
 </body>
 </html>

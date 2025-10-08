@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cookie = navigator.cookieEnabled;
+        if(cookie == true){
+            var n = "Si";
+        } else {
+            var n = "No";
+        }
+        document.write("Codigo del nombre del navegador: " + navigator.appCodeName + "<br>");
+        document.write("Nombre del navegador: " + navigator.appName + "<br>");
+        document.write("Version del navegador: " + navigator.appVersion + "<br>");
+        document.write("Cookies activadas: " + n + "<br>");
+        document.write("Info del usuario: " + navigator.userAgent + "<br>");
+    </script>
+</body>
+</html>

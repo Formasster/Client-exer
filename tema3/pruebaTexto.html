@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var texto = new String(prompt("Introduce un texto"));
+        document.write("El número de caracteres en la cadena: " + texto.length + "<br>");
+        document.write("Cursiva:" + texto.italics() + "<br>");
+        document.write("Negrita:" + texto.bold() + "<br>");
+        document.write("Rojo:" + texto.fontcolor("red") + "<br>");
+        document.write("Grande:" + texto.big() + "<br>");
+        document.write("Tachado:" + texto.strike() + "<br>");
+    </script>
+</body>
+</html>

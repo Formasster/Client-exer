@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego</title>
+</head>
+<body>
+    <script>
+        let comb1;
+        let comb2;
+        let intentos = 0;
+        let muerto=0;
+        let herido=0;
+        do{
+        comb1 = parseInt(prompt("Dime la combinación de cuatro númeosros (entre 0 y 9)"));
+        alert(comb1);
+        console.log(comb1);
+        }while(isNaN(comb1) || comb1 < 0 || comb1 > 9999 || comb1.toString().length !== 4);//Comprobamos que sea un número adecuado
+        if(isNaN(comb1) || comb1 < 0 || comb1 > 9999) {
+            alert("Combinación incorrecta");
+        }else{
+            do{
+            do{
+            comb2 = parseInt(prompt("Dime la combinación del jugador (cuatro números entre 0 y 9)"));
+              alert(comb2);//Muestra la combinación del jugador
+            }while(isNaN(comb2) || comb2 < 0 || comb2 > 9999 || comb2.toString().length !== 4);//Comprobamos que sea un número adecuado
+            intentos++;
+            if (comb1 === comb2){
+                alert("Has ganado en " + intentos + " intentos");
+            }else if(intentos === 8){
+                alert("Has perdido, la combinación era " + comb1);
+            }
+            else{
+                let str1 = comb1.toString();
+                let str2 = comb2.toString();
+                let it = 0;
+                do{
+                    for (let i=0; i<4; i++){
+                        for(let j=0; j<4; j++){
+                            if(str1.charAt(i) === str2.charAt(j) && i !== j){
+                                alert("Has acertado el número " + str1.charAt(i) + " pero en la posición incorrecta");
+                                herido++;
+                            }
+                        }
+                        if(str1.charAt(i) === str2.charAt(i)){
+                            alert("Has acertado el número " + str1.charAt(i) + " en la posición " + (i+1));
+                            muerto++;
+                        }
+                        it++;
+                    }
+                }while(it < 4);
+                alert("Llevas " + muerto + " muertos y " + herido + " heridos \nTienes " + (8-intentos) + " intentos");
+                if(muerto === 0 && herido === 0){
+                    alert("No has acertado ningún número \nTienes " + (8-intentos) + " intentos");
+                   
+                }
+            }
+        }while(comb1!==comb2 && intentos < 8);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fecha = new Date();
+        var mes = fecha.getMonth();
+        var year = fecha.getFullYear();
+        var day = fecha.getUTCDay();
+        var hora = fecha.getHours() + ":" + (fecha.getMinutes()-9) + ":" + fecha.getSeconds();
+        var mesl;
+        var dia;
+        var cont=0;
+        console.log(year);
+        console.log(mes);
+
+        switch(day){
+            case 0:
+                dia=("Domingo");
+                break;
+            case 1:
+                dia=("Lunes");
+                break;
+            case 2:
+                dia=("Martes"); 
+                break;
+            case 3:
+                dia=("Miércoles");
+                break;
+            case 4:
+                dia=("Jueves");
+                break;
+            case 5:
+                dia=("Viernes");
+                break;
+            case 6:
+                dia=("Sábado");
+                break;                  
+        }
+
+        switch(mes){
+            case 0:
+                mesl=("Enero");
+                break;
+            case 1:
+                mesl=("Febrero");
+                break;
+            case 2:
+                mesl=("Marzo");
+                break;
+            case 3:
+                mesl=("Abril");
+                break;
+            case 4:
+                mesl=("Mayo");
+                break;
+            case 5:
+                mesl=("Junio");
+                break;
+            case 6:
+                mesl=("Julio");
+                break;
+            case 7:
+                mesl=("Agosto");
+                break;
+            case 8:
+                mesl=("Septiembre");
+                break;
+            case 9:
+                mesl=("Octubre");
+                break;
+            case 10:
+                mesl=("Noviembre");
+                break;
+            case 11:
+                mesl=("Diciembre");
+                break;
+            default:
+                mesl=("Mes incorrecto");
+        }
+        do{
+            document.write("Hoy es " + (dia) + " y estamos en " + mesl + " del año " + year + " y son las " + hora);
+            cont++;
+        }while(contador<60);
+            alert("Ha pasado un minuto");
+            //no va
+        
+        
+    </script>
+</body>
+</html>

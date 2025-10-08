@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multijugador</title>
+</head>
+<body>
+    <script>
+        let comb1J1;
+        let comb1J2;
+        let comb2Jug1;
+        let comb2Jug2
+        let intentos1 = 0;
+        let muerto=0;
+        let herido=0;
+        let intentos2 = 0;
+        let muerto2=0;
+        let herido2=0;
+        do{
+        comb1J1 = parseInt(prompt("Jugador 1, dime la combinación de cuatro númeosros (entre 0 y 9) para el jugador 2"));
+        console.log(comb1J1);
+        }while(isNaN(comb1J1) || comb1J1 < 0 || comb1J1 > 9999 || comb1J1.toString().length !== 4);//Comprobamos que sea un número adecuado del jugador 1
+            if(isNaN(comb1J1) || comb1J1 < 0 || comb1J1 > 9999) {
+                alert("Combinación incorrecta");
+            }else{ // proseguimos con el jugador 2
+                do{
+                    do{//Bucle para que el jugador 2 meta su combinación
+                        comb1J2 = parseInt(prompt("Jugador 2, dime la combinación de cuatro números (entre 0 y 9) para el jugador 1"));
+                        
+                    }while(isNaN(comb1J1) || comb1J1 < 0 || comb1J1 > 9999 || comb1J1.toString().length !== 4);//Comprobamos que sea un número adecuado del jugador 2
+                        if(isNaN(comb1J1) || comb1J1 < 0 || comb1J1 > 9999) {
+                        alert("Combinación incorrecta");
+                        }else{// proseguimos con la adivinación
+
+                            do{//Bucle para que el jugador 1 meta su combinación
+                                alert("Turno del jugador 1");
+                                comb2Jug1 = parseInt(prompt("Dime la combinación del jugador 2 (cuatro números entre 0 y 9)"));
+                            }while(isNaN(comb2Jug1) || comb2Jug1 < 0 || comb2Jug1 > 9999 || comb2Jug1.toString().length !== 4);//Comprobamos que sea un número adecuado
+                            intentos1++;
+                            do{//Bucle para que el jugador 2 meta su combinación
+                                alert("Turno del jugador 2");
+                                comb2Jug2 = parseInt(prompt("Dime la combinación del jugador 1 (cuatro números entre 0 y 9)"));
+                            }while(isNaN(comb2Jug2) || comb2Jug2 < 0 || comb2Jug2 > 9999 || comb2Jug2.toString().length !== 4);//Comprobamos que sea un número adecuado
+                            intentos2++;
+
+                            
+                            if (comb1J1 === comb2Jug1){//Comprobamos si el jugador 2 ha ganado
+                                alert("Jugador 2, has ganado en " + intentos1 + " intentos");
+                            }else if(intentos2 === 8){
+                                alert("Has perdido, la combinación era " + comb1Jug1);
+                            }else{
+                                if (comb1Jug2 === comb2Jug1){//Comprobamos si el jugador 1 ha ganado
+                                alert("Jugador 1, has ganado en " + intentos + " intentos");
+                                }else if(intentos1 === 8){
+                                alert("Has perdido, la combinación era " + comb1Jug2);
+                                }
+                                else{//Si no ha ganado ninguno seguimos con el juego
+                                    let str11 = comb1Jug1.toString();
+                                    let str12 = comb1Jug2.toString();
+                                    let str21 = comb2Jug1.toString();
+                                    let str22 = comb2Jug2.toString();
+                                    let it1 = 0;
+                                    let it2 = 0;
+                                    do{//Comprobamos los números del jugador 1
+                                        for (let i=0; i<4; i++){
+                                            for(let j=0; j<4; j++){
+                                                if(str11.charAt(i) === str21.charAt(j) && i !== j){
+                                                    alert("Has acertado el número " + str11.charAt(i) + " pero en la posición incorrecta");
+                                                    herido1++;
+                                                }
+                                            }
+                                            if(str11.charAt(i) === str21.charAt(i)){
+                                                alert("Has acertado el número " + str1.charAt(i) + " en la posición " + (i+1));
+                                                muerto1++;
+                                            }
+                                            it++;
+                                        }
+                                    }while(it1 < 4);
+                                    alert("Llevas " + muerto1 + " muertos y " + herido1 + " heridos \nTienes " + (8-intentos1) + " intentos");
+                                    if(muerto1 === 0 && herido1 === 0){
+                                        alert("No has acertado ningún número \nTienes " + (8-intentos1) + " intentos");
+                                    
+                                    }
+
+                                    do{//Comprobamos los números del jugador 2   
+                                        for (let i=0; i<4; i++){
+                                            for(let j=0; j<4; j++){
+                                                if(str21.charAt(i) === str22.charAt(j) && i !== j){
+                                                    alert("Has acertado el número " + str21.charAt(i) + " pero en la posición incorrecta");
+                                                    herido2++;
+                                                }
+                                            }
+                                            if(str21.charAt(i) === str22.charAt(i)){
+                                                alert("Has acertado el número " + str21.charAt(i) + " en la posición " + (i+1));
+                                                muerto2++;
+                                            }
+                                            it2++;
+                                        }
+                                    }while(it < 4);
+                                    alert("Llevas " + muerto2 + " muertos y " + herido2 + " heridos \nTienes " + (8-intentos2) + " intentos");
+                                    if(muerto2 === 0 && herido2 === 0){
+                                        alert("No has acertado ningún número \nTienes " + (8-intentos2) + " intentos");
+                                    
+                                    }
+
+                                    
+                                }
+                            }  
+                    }
+                }while(comb1!==comb2 && intentos < 8);
+            }
+    </script>
+</body>
+</html>
