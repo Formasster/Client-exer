@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h3>Selecciona un color para el fondo de página:</h3>
+        <select name="color" id="color">
+            <option value="red">Rojo</option>
+            <option value="yellow">Amarillo</option>
+            <option value="darkgreen">Verde</option>
+            <option value="darkblue">Azul</option>
+            <option value="white">Blanco</option>
+        </select>
+        <button 
+        onclick="document.body.style.backgroundColor= document.getElementById('color').value">
+        Cambiar</button>
+
+</body>
+</html>

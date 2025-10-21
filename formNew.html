@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="post">
+        <h2>Suscríbete a Newsletter</h2>
+        <p id="mensajeN"></p>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="nombre" required onblur="validaNombre()">
+        <br>
+        <p id="mensajeT"></p>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="tel" pattern="Ej:644872761" required onblur="validaTelefono()">
+        <br>
+        <p id="mensajeE"></p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email1" required onblur="validaEmail()">
+        <br>
+        <p id="mensajeS"></p>
+        <label for="color">Suscripciones:</label>
+        <select name="sus" id="sus" required onblur="validaSuscripcion()">
+            <option value="">--Selecciona una opción--</option>
+            <option value="news">Newsletter</option>
+            <option value="updates">Actualizaciones</option>
+            <option value="offers">Ofertas</option>
+        </select>
+        <br>
+        <p id="mensajeL"></p>
+        <input type="checkbox" id="checkbox" name="checkbox" required onblur="lopd()">
+        <label for="checkbox">Acepto LOPD</label>
+        <br>
+        <button type="submit" required onclick="validaFormulario()">Enviar</button>
+    </form>
+
+    <script>
+        function validaNombre(){
+            var name = document.getElementById('name').value;
+            var mensaje = document.getElementById('mensajeN');
+            if(typeof name !== 'string' || name == ""){
+                mensaje.textContent="Debes introducir un nombre válido"
+                document.getElementById('name').style.borderColor = "red";            
+            }else if(/\d/.test(name)){
+                mensaje.textContent="El nombre no puede contener números"
+                document.getElementById('name').style.borderColor = "red";
+            }else{
+                mensaje.style.display = "none";
+                document.getElementById('name').style.borderColor = "initial";
+            }
+            return true;
+        }
+
+        function validaTelefono(){
+            var telefono = document.getElementById('telefono').value;
+            var mensaje = document.getElementById('mensajeT');
+            if(!/^\d{9}$/.test(telefono)){
+                mensaje.textContent = "Debes escribir un teléfono válido";
+                document.getElementById('telefono').style.borderColor = "red";
+            }else if(telefono == ""){
+                mensaje.textContent = "El teléfono no puede estar vacío";
+                document.getElementById('telefono').style.borderColor = "red";
+            }else{
+                mensaje.style.display = "none";
+                document.getElementById('name').style.borderColor = "initial";
+            }
+            return true;
+        }
+       
+
+        function validaEmail(){
+            var email = document.getElementById('email').value;
+            var mensaje = document.getElementById('mensajeE');
+                if(!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email)) ){
+                    mensaje.textContent = "Debes escribir un email válido";
+                    document.getElementById('email').style.borderColor = "red";
+                return false;
+            }else if(email == ""){
+                mensaje.textContent = "El email no puede estar vacío";
+                document.getElementById('email').style.borderColor = "red";
+            }else{
+                mensaje.style.display = "none";
+                email.style.borderColor = "initial";
+            }
+            return true;
+        }
+
+         
+        function validaSuscripcion(){
+            var sus = document.getElementById('sus').value;
+            var mensaje = document.getElementById('mensajeS');
+            if(sus === "" ){
+                mensaje.textContent = "Debes seleccionar una suscripción";
+                document.getElementById('sus').style.borderColor = "red";
+                return false;
+            }else{
+                mensaje.style.display = "none";
+                document.getElementById('sus').style.borderColor = "initial";
+            }
+            return true;
+        }
+
+        
+        function lopd(){
+            var checkbox = document.getElementById('checkbox');
+            var mensaje = document.getElementById('mensajeL');
+            if(!checkbox.checked){
+                mensaje.textContent = "Debes aceptar la LOPD";
+                document.getElementById('checkbox').style.borderColor = "red";
+                return false;   
+            }
+            return true;
+        }
+
+        function validaFormulario() {
+            if(validaNombre() && validaTelefono() && validaEmail() && validaSuscripcion() && lopd()){
+                alert("Formulario enviado correctamente");
+                return true;
+            } else {
+                alert("Por favor, corrige los errores antes de enviar el formulario");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

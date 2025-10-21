@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombilla</title>
+    <style>
+        img{
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button onclick="document.getElementById('bomb').src='2.png'">Encender</button> 
+    <button onclick="document.getElementById('bomb').src='1.png'">Apagar</button>-->
+    <button onclick="bomb()">Interruptor</button>
+    <img id=bomb src="2.png" alt="bombilla">
+
+    <script>
+        var inter = false;
+        function bomb(){
+            if(inter==false){
+                document.getElementById('bomb').src='1.png';
+                inter=true;
+            }else{
+                document.getElementById('bomb').src='2.png';
+                inter=false;
+            }
+        }    
+    </script>
+</body>
+</html>

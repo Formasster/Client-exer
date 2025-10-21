@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
+    <h2>Elige una opción:</h2>
+    <p id="mensaje1"></p>
+    <p>Valor 1:</p>
+    <input type="number" id="valor1">
+    <p id="mensaje2"></p>
+    <p>Valor 2:</p>
+    <input type="number" id="valor2">
+    <br><br>
+    <select name="mate" id="mate">
+        <option value="">--Selecciona una opción--</option>
+        <option value="suma">Sumar</option>
+        <option value="resta">Restar</option>
+        <option value="multiplicacion">Multiplicar</option>
+        <option value="random">Random</option>
+        <option value="salir">Salir</option>
+    </select>
+    <br><br>
+    <button onclick="opcion()">Calcular</button>
+    <br><br>
+    <p id="result"></p>
+    <script>
+        function opcion(){
+            let num1 = parseInt(document.getElementById('valor1').value);
+                if(num1 == ""){
+                    let mensaje = document.getElementById('mensaje1');
+                    mensaje.textContent = "Debes introducir un número en el valor 1";
+                    return;
+                }
+            let num2 = parseInt(document.getElementById('valor2').value);
+                if(num2 == ""){
+                    let mensaje = document.getElementById('mensaje2');
+                    mensaje.textContent = "Debes introducir un número en el valor 2";
+                    return;
+                }
+            let opcion = document.getElementById('mate').value;
+            let resultado = document.getElementById('result');
+                if(opcion == ""){
+                    resultado.textContent = "Debes seleccionar una opción del menú";
+                    return;
+                }
+                console.log(opcion);
+            /*
+            const valor1 = parseFloat(document.getElementById("valor1").value);
+  const valor2 = parseFloat(document.getElementById("valor2").value);
+  let operacion = document.getElementById("servicio").value;
+  const resultado = document.getElementById("resultado");
+
+  // no es necesario este if
+  if (isNaN(valor1) || isNaN(valor2)) {
+    resultado.textContent = "Introduce dos números válidos.";
+    return;
+  }
+
+  let total;
+
+  if (operacion === "4") {
+    operacion = Math.floor(Math.random() * 3) + 1;
+  }
+
+  switch (operacion) {
+     case "1":
+      total = valor1 + valor2;
+      break;
+    case "2":
+      total = valor1 - valor2;
+      break;
+    case "3":
+      total = valor1 * valor2;
+      break;
+    default:
+      resultado.textContent = "Selecciona una operación válida.";
+      return;
+  }
+
+  resultado.textContent = "Resultado es" + total;
+}    
+            */
+
+            if(opcion === "salir"){
+                document.write("<h1>Adiós</h1>");
+            }else if(opcion === "suma"){
+                let suma = num1 + num2;
+                resultado.textContent="La suma de " + num1 + " y " + num2 + " es " + suma;
+            }else if(opcion === "resta"){
+                let resta = num1 - num2;
+                resultado.textContent="La resta de " + num1 + " y " + num2 + " es " + resta;
+            }else if(opcion === "multiplicacion"){
+                let multiplicacion = num1 * num2;
+                resultado.textContent="La multiplicación de " + num1 + " y " + num2 + " es " + multiplicacion;
+            }else if(opcion === "random"){
+                let random = Math.floor(Math.random()*3);
+                console.log(random);
+                if(random == 0){
+                    let suma = num1 + num2;
+                    resultado.textContent="La suma de " + num1 + " y " + num2 + " es " + suma;
+                }else if(random == 1){
+                    let resta = num1 - num2;
+                    resultado.textContent="La resta de " + num1 + " y " + num2 + " es " + resta;
+                }else if(random == 2){
+                    let multiplicacion = num1 * num2;
+                    resultado.textContent="La multiplicación de " + num1 + " y " + num2 + " es " + multiplicacion;
+                }
+            }    
+        }    
+    </script>
+</body>
+</html>

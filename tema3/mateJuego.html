@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #opcion{
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adivina el número que falta </h1>
+    <form id="formulario" action="#">
+        <p>Valor 1:</p>
+        <input type="number" id="num1" required>
+        <p >Valor 2:</p>
+        <input type="number" id="num2" required>
+        <br>
+        <p>Resultado:</p>
+        <input type="number" id="total" required>
+        <br><br>
+        <p id="opcion" style="border: solid 1px rgb(255, 0, 0);"></p>
+        <br><br>
+        <button onclick="adivina()">Comprobar</button>
+        <button onclick="numeros()">Nueva operación</button>
+        <br>
+        <p id="resultado">Adivina el número y comprueba</p>
+    </form>
+
+<script>
+
+    let num1 = 0;
+    let num2 = 0;
+
+    function numeros(){
+
+        num1 = Math.floor(Math.random()*10)+1;
+        num2 = Math.floor(Math.random()*10)+1;
+    
+        document.getElementById("num1").value = num1;
+        document.getElementById("num2").value = "";
+        let operacion = Math.floor(Math.random() * 3) + 1;
+
+        let total;
+
+        switch (operacion) {
+            case 1:
+            total = num1 + num2;
+            document.getElementById("opcion").textContent = "Suma";
+            break;
+            case 2:
+            total = num1 - num2;
+            document.getElementById("opcion").textContent = "Resta";
+            break;
+            case 3:
+            total = num1 * num2;
+            document.getElementById("opcion").textContent = "Multiplicacion";
+            break;
+            default:
+            resultado.textContent = "Selecciona una operación válida.";
+            break;
+        }
+        console.log(total);
+
+        document.getElementById("total").value = total;
+
+    }
+
+    function adivina(){
+  
+        let numeroUsuario = document.getElementById("num2").value;
+        console.log(num2);
+        console.log(numeroUsuario);
+        if(num2 == numeroUsuario){
+            resultado.textContent = "¡Enhorabuena! Has adivinado el número " + num2;
+        }else{
+            resultado.textContent = "Lo siento, el número correcto era " + num2;
+        }
+    }
+
+
+    window.onload=numeros;
+</script>
+</body>
+
+</html>
